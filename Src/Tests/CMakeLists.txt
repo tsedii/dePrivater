@@ -4,10 +4,14 @@ set( TEST_SOURCE_FILES
     gTestsMain.cpp
     Sources/dePrivateTests.cpp
 
+    ../Utils/Sources/utils.cpp
+
     ../DePrivater/Sources/dePrivater.cpp
 #_de_privater_info_source_# 
     ../DePrivater/Headers/dePrivater.hpp
 #_de_privater_info_destination_# DePrivater/dePrivater.hpp
+
+    ../Utils/Headers/utils.hpp
 )
 
 add_executable(dePrivaterTests ${TEST_SOURCE_FILES})

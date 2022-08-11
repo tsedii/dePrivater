@@ -2,7 +2,8 @@
 
 #include <iostream>
 #include <stdexcept>
-#include <fstream>
+
+#include "utils.hpp"
 
 
 namespace de_privater
@@ -13,11 +14,11 @@ namespace de_privater
         {
             DePrivate();
         }
-        catch(const std::exception& e)
+        catch( const std::exception& e )
         {
             std::cerr << e.what() << '\n';
         }
-        catch(...)
+        catch( ... )
         {
             std::cerr << "Unknown error" << '\n';
         }
@@ -27,9 +28,11 @@ namespace de_privater
     {
         std::string medias_and_transcripts_url_addresses_file_line;
 
-        std::ifstream medias_and_transcripts_url_addresses_file_stream(cmake_lists_txt_full_name_);
+        std::shared_ptr<std::ifstream> medias_and_transcripts_url_addresses_file_stream_ptr( 
+            utils::filesystem::GetFileStream( cmake_lists_txt_full_name_ )
+        );
         
-        while (std::getline(medias_and_transcripts_url_addresses_file_stream, medias_and_transcripts_url_addresses_file_line))
+        while ( std::getline( *medias_and_transcripts_url_addresses_file_stream_ptr, medias_and_transcripts_url_addresses_file_line ) )
         {
             std::cout << medias_and_transcripts_url_addresses_file_line << std::endl;
         }
