@@ -69,6 +69,14 @@ fi
 
 }
 
+RunTestTarget() {
+
+if [ -f $builtTestTarget ]; then
+      ./$builtTestTarget
+fi
+
+}
+
 DeleteTmpBildFolders
 DeleteTargetFiles
 
@@ -94,3 +102,4 @@ CheckNotDelBuildCommandLineArgument $1
 
 DeleteTmpBildFolders
 
+RunTestTarget

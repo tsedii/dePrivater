@@ -5,13 +5,20 @@ namespace utils
 {
     namespace filesystem
     {
-        std::shared_ptr<std::ifstream> GetFileStream(const std::string& file_name)
+        std::shared_ptr<std::ifstream> GetFileStream ( const std::string& file_name )
         {
             std::shared_ptr<std::ifstream> file_stream_ptr( 
-                std::make_shared<std::ifstream>(file_name)
+                std::make_shared<std::ifstream> ( file_name )
             );
 
-            if ( !file_stream_ptr->is_open() )
+            if ( !file_stream_ptr )
+            {
+                throw std::logic_error ( 
+                    std::string ( "can't create std::shared_ptr for std::ifstream for open " ) 
+                    + file_name 
+                );
+            }
+            else if ( !file_stream_ptr->is_open() )
             {
                 throw std::logic_error ( std::string( "failed to open " ) + file_name );
             }
