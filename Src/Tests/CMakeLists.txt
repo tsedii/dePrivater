@@ -7,8 +7,8 @@ set ( TEST_SOURCE_FILES
     ../Utils/Sources/utils.cpp
 
     ../DePrivater/Sources/dePrivater.cpp
-#_de_privater_header_source_# Next row should contain .hpp-file where all private keywords must be changed to public keyword
-    ../DePrivater/Headers/dePrivater.hpp
+#_de_privater_header_file_# Next row should contain .hpp-file where all "private" keywords must be changed to "public" keyword
+#_de_privater_header_file_comment_#    ../DePrivater/Headers/dePrivater.hpp
 #_de_privater_header_destination_# DePrivater/dePrivater.hpp
 
     ../Utils/Headers/utils.hpp
