@@ -4,15 +4,7 @@
 #include <stdexcept>
 
 #include "utils.hpp"
-
-#define FOR_LOG_LINE_FUNC_FILE(MESSAGE) \
-    [=](std::string message) -> std::string { return ( \
-        message \
-        + std::string ( "\n code line : " ) + std::to_string ( __LINE__ ) \
-        + std::string ( "\n function name : " ) + std::string ( __func__ ) \
-        + std::string ( "\n source file : " ) + std::string ( __FILE__ ) \
-    ); \
-    }(MESSAGE)
+#include "logger.hpp"
 
 
 namespace de_privater
@@ -45,7 +37,7 @@ namespace de_privater
 
         OutloadChangesToCMakeFile ( medias_and_transcripts_url_addresses_file_stream_ptr, temporary_text_file_ptr );
 
-        return true;
+        return true; // For running always successful empty google test
     }
 
     void DePrivater::ProcessingCMakeFileDeprivateSignatures (

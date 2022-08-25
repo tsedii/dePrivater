@@ -12,6 +12,7 @@ set( SOURCE_FILES
 
 include_directories( 
     Src/DePrivater/Headers/
+    Src/Logger/Headers/
     Src/Utils/Headers/
 )
 
